@@ -50,6 +50,10 @@ module.exports = function(ctx) {
   };
 
   events.mousedown = function(event) {
+    const isRightClick = event.originalEvent.button !== 0;
+
+    if (isRightClick) return;
+
     mouseDownInfo = {
       time: new Date().getTime(),
       point: event.point
